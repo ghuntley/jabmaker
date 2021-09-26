@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110483247-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110483247-1');
+</script>
+    
+    <link rel="prefetch" href="certificate.pdf">
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@geoffreyhuntley" />
+<meta name="twitter:creator" content="@geoffreyhuntley" />
+<meta property="og:url" content="https://www.jabmaker.com/" />
+<meta property="og:title" content="JabMaker 💉 | Real Fake Vaccination Certificates" />
+<meta property="og:description" content="We have real fake certificates like you wouldn’t believe! What are you worried about? Come get real fake vaccination certificates. Don’t even hesitate, Don’t even worry and don’t even give it a second thought. What are you worried about?" />
+<meta property="og:image" content="https://jabmaker.com/android-chrome-256x256.png" />
+
+<!--  
+    Document Title
+    =============================================
+    -->
+    <title>JabMaker 💉 | Real Fake Vaccination Certificates</title>
+    <!--  
+    Favicons
+    =============================================
+    -->
+    
+    <style>#forkongithub a{background:#000;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:60px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}</style><span id="forkongithub"><a href="https://github.com/ghuntley/jabmaker">Fork me on GitHub</a></span>
+
+    <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+    <!-- Default stylesheets-->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+  </head>
+
+  <script>
+    const { PDFDocument } = PDFLib
+
+    async function fillForm() {
+      const formUrl = 'https://www.jabmaker.com/certificate.pdf'
+      const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
+      const pdfDoc = await PDFDocument.load(formPdfBytes)
+      const pdfForm = pdfDoc.getForm()
+
+      const dateField = pdfForm.getTextField('date')
+      const nameField = pdfForm.getTextField('name')
+      const dobField = pdfForm.getTextField('dob')
+      const ihiField = pdfForm.getTextField('ihi')
+      const brandField = pdfForm.getTextField('brand')
+
+      const form = document.querySelector('form[name="jabmaker"]')
+      const name = form.elements['name'].value
+      const dob = form.elements['dob'].value
+      const ihi = form.elements['ihi'].value
+      const brand = form.elements['brand'].value
+
+      const timeElapsed = Date.now()
+      const today = new Date(timeElapsed)
+      dateField.setText(today.toLocaleDateString())
+      nameField.setText(name)
+      dobField.setText(dob)
+      ihiField.setText(ihi)
+      brandField.setText(brand)
+
+      const pdfBytes = await pdfDoc.save()
+      download(pdfBytes, "jabmaker.com-real-fake-vaccination-certificate.pdf", "application/pdf");
+    }
+  </script>
+
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">JabMaker 💉</a>
+          </div>
+        </div>
+      </nav>
+      <div class="main">
+        <section class="module">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <h1 class="product-title font-alt">
+                  Welcome to <del>JobKeeker</del>,
+                  <del>JobSeeker</del>,
+                  <del>JobMaker</del>,
+                  JabMaker 💉
+                </h1>
+                <p>Hi, I'm <a href="https://ghuntley.com/covidsafe">Geoff</a> 👋 I'm a security researcher and this website that generates real fake vaccination certificates was made to highlight failures to address security concerns. Over the last couple of months members with the <a href="https://github.com/AusOpenTech">AusOpenTech community</a> have discussed this scenario with the media and so far there has been no deviation from this faulty path and NSW has <a href="https://www.abc.net.au/news/science/2021-09-27/covid-19-vaccine-certificate-who-is-responsible-for-checking/100485844">doubled down</a> on it.</p>
+                <p>When I visit places I want my legitimate certificate to be trusted and I feel Australia could have done a lot more. It feels like our leadership is going for minimal effort for this roll out and is ignoring people like Richard Nelson who in a couple of hours conjured up a proof-of-concept showing how Australia can provide <a href="https://twitter.com/wabzqem/status/1438271850983792640">verifiable evidence of a person’s vaccinations status</a>.</p>
+                <p>Australia needs a good federal approach that works for <b>everyone</b>. If there’s a fallback to the insecure PDF for state/border travellers there’s not much point in each state doing anything. The insecure PDF can be unlocked via <a href="https://github.com/jakepetroules/littlebirdy">LittleBirdy</a> (or opening the PDF in the macOS Preview.app) at which point the PDF can be edited using standard tools and generation of vaccination certificates becomes childsplay. As no authentication features are part of the immunization statement it is impossible to determine authenticity. The source code of this application is available on <a href="https://github.com/ghuntley/jabmaker">GitHub</a>, is 65 lines of code and runs completely in your web-browser with no backend.</p> .
+              </div>
+            </div>
+
+            <div class="row">
+
+
+              <div class="col-sm-6 mb-sm-40">
+                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This isn&#39;t going to end well... <a href="https://t.co/XJGd5gz2hK">https://t.co/XJGd5gz2hK</a> <a href="https://t.co/O28bGOSaDW">pic.twitter.com/O28bGOSaDW</a></p>&mdash; geoff (@GeoffreyHuntley) <a href="https://twitter.com/GeoffreyHuntley/status/1441548907087949824?ref_src=twsrc%5Etfw">September 24, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h1 class="product-title font-alt">Real Fake Vaccination Certificate</h1>
+                  </div>
+                </div>
+                <div class="row mb-20">
+                  <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span><a class="open-tab section-scroll" href="#reviews">-4customer reviews</a>
+                  </div>
+                </div>
+                <div class="row mb-20">
+                  <div class="col-sm-12">
+                    <div class="price font-alt"><span class="amount">FREE</span></div>
+                  </div>
+                </div>
+                <div class="row mb-20">
+                  <div class="col-sm-12">
+                    <div class="description">
+                      <p>​We have real fake certificates like you wouldn’t believe!</p>
+                      <p>What are you worried about?</p>
+                      <p>Come get real fake vaccination certificates.</p>
+                      <p>Call us up, and order some real fake vaccination certificates today.</p>
+                      <p>Don’t even hesitate, Don’t even worry and don’t even give it a second thought.</p>
+                      <p>What are you worried about?</p>
+                      <p><b>Fill in the form below and press the button to generate your limited edition souvenir!</b></p>                        
+                        
+                    </div>
+                  </div>
+                </div>
+                <form name="jabmaker">
+                <div class="row mb-20">
+                  <div class="col-sm-8 mb-sm-20">
+                    Your Name: <input class="form-control input-lg" type="text" name="name" placeholder="Your Name" value="Donald Trump" max="40" required="required"/>
+                  </div>
+                  <div class="col-sm-8 mb-sm-20">
+                    Date of Birth: <input class="form-control input-lg" type="text" name="dob" placeholder="Your Date of Birth" value="14 June 1946" max="40" required="required"/>
+                  </div>
+                  <div class="col-sm-8 mb-sm-20">
+                    Health Care Identifier: <input class="form-control input-lg" type="text" name="ihi" placeholder="Your Individual Healthcare Identifier" value="1234 5678 9012 3456" max="40" required="required"/>
+                  </div>
+                  <div class="col-sm-8 mb-sm-20">
+                    Vaccination Brand: <input class="form-control input-lg" type="text" name="brand" placeholder="Brand" value="Sildenafil" max="40" required="required"/>
+                  </div>
+                  <div class="col-sm-8"><a class="btn btn-lg btn-block btn-round btn-b" onclick="fillForm()">Generate real fake certificate</a></div>
+                </div>
+              </form>
+                <div class="row mb-20">
+                  <div class="col-sm-12">
+                    <div class="product_meta">Categories:<a href="#">Daniel Andrews</a>, <a href="#">Annastacia Palaszczuk</a>, <a href="#">Gladys Berejiklian</a>, <a href="#">Mark McGowan</a>, <a href="#">Steven Marshall</a>, <a href="#">Peter Gutwein</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-70">
+              <div class="col-sm-12">
+                <ul class="nav nav-tabs font-alt" role="tablist">
+                  <li><a href="#description" data-toggle="tab"><span class="icon-tools-2"></span>Description</a></li>
+                  <li><a href="#data-sheet" data-toggle="tab"><span class="icon-tools-2"></span>Data sheet</a></li>
+                  <li class="active"><a href="#reviews" data-toggle="tab"><span class="icon-tools-2"></span>Reviews (4)</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane" id="description">
+                    <p>So this is my website, I just made a sandwich, peanut butter and jelly, still here, still selling real fake vaccinaton certificates! We have real fake vaccination certificates like you wouldn’t believe! What are you worried about? Come get real fake vaccination certficiates. Call us up, and order some real fake vaccination certificates today. Don’t even hesitate, Don’t even worry and don’t even give it a second thought. That’s our slogan.</p>
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/R-Xk2RWfkoc"></iframe>
+                  </div>
+                  <div class="tab-pane" id="data-sheet">
+                    <table class="table table-striped ds-table table-responsive">
+                      <tbody>
+                        <tr>
+                          <th>Title</th>
+                          <th>Info</th>
+                        </tr>
+                        <tr>
+                          <td>Authenticity</td>
+                          <td>Real Fake COVID19 Vaccination Certificate</td>
+                        </tr>
+                        <tr>
+                          <td>Price</td>
+                          <td>Free</td>
+                        </tr>
+                        <tr>
+                          <td>Delivery</td>
+                          <td>Electronic</td>
+                        </tr>
+                        <tr>
+                          <td>Medium</td>
+                          <td>PDF</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="tab-pane active" id="reviews">
+                    <div class="comments reviews">
+                      <div class="comment clearfix">
+                        <div class="comment-avatar"><img src="https://pbs.twimg.com/profile_images/1436967034416336901/8E9BlPor_400x400.jpg" alt="avatar"/></div>
+                        <div class="comment-content clearfix">
+                          <div class="comment-author font-alt"><a href="https://twitter.com/offensivepizzas">real fake offensive 🍕's</a></div>
+                          <div class="comment-body">
+                            <p>I wish full disclosure securtiy research looked this good all the time 😍</p>
+                          </div>
+                          <div class="comment-meta font-alt">Today, 7:29 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment clearfix">
+                        <div class="comment-avatar"><img src="https://pbs.twimg.com/profile_images/1402937153420734465/OwUgBi6x_400x400.jpg" alt="avatar"/></div>
+                        <div class="comment-content clearfix">
+                          <div class="comment-author font-alt"><a href="https://twitter.com/fs0c131y">real fake Baptiste Robert</a></div>
+                          <div class="comment-body">
+                            <p>Je ne suis pas un expert de ces choses mais même mes billets pour un concert avaient plus de sécurité que ça 🤣</p>
+                          </div>
+                          <div class="comment-meta font-alt">Today, 8:20 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span><span><i class="fa fa-star star-off"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment clearfix">
+                        <div class="comment-avatar"><img src="https://pbs.twimg.com/profile_images/1366363465137352706/Ge4qKg2l_400x400.jpg" alt="avatar"/></div>
+                        <div class="comment-content clearfix">
+                          <div class="comment-author font-alt"><a href="https://twitter.com/CraigKellyMP/status/1441640375689482244">real fake Craig Kelly</a></div>
+                          <div class="comment-body">
+                            <p>i love it 😻😻😻😻😻</p>
+                          </div>
+                          <div class="comment-meta font-alt">Today, 9:00 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment clearfix">
+                        <div class="comment-avatar"><img src="https://pbs.twimg.com/profile_images/1268382907690713088/-WeRtir5_400x400.jpg" alt="avatar"/></div>
+                        <div class="comment-content clearfix">
+                          <div class="comment-author font-alt"><a href="https://twitter.com/cameronwilson/status/1431066291121516545">real fake cameron wilson</a></div>
+                          <div class="comment-body">
+                            <p>let's close the loop and i can also be the one who acts as the customer, badabing instant article</p>
+                          </div>
+                          <div class="comment-meta font-alt">Yesterday, 00:69 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span><span><i class="fa fa-star star-off"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment clearfix">
+                        <div class="comment-avatar"><img src="https://pbs.twimg.com/profile_images/596463215938117633/KN0JlgML_400x400.jpg" alt="avatar"/></div>
+                        <div class="comment-content clearfix">
+                          <div class="comment-author font-alt"><a href="https://www.abc.net.au/news/science/2021-08-23/covid-19-vaccine-certificates-forged-in-10-minutes/100390578">real fake Stuart Robert</a></div>
+                          <div class="comment-body">
+                            <p><a href="https://www.abc.net.au/news/science/2021-08-23/covid-19-vaccine-certificates-forged-in-10-minutes/100390578">The spokesman for Mr Robert did not respond to questions about whether the government was working on a new type of vaccine certificate.</a></p>
+                          </div>
+                          <div class="comment-meta font-alt">Last month, 4:20 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="comment-form mt-30">
+                      <h4 class="comment-form-title font-alt">Add review</h4>
+                      <form method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="sr-only" for="name">Name</label>
+                              <input class="form-control" id="name" type="text" name="name" placeholder="Name"/>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="sr-only" for="email">Name</label>
+                              <input class="form-control" id="email" type="text" name="email" placeholder="E-mail"/>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <select class="form-control">
+                                <option selected="true" disabled="">Rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <textarea class="form-control" id="" name="" rows="4" placeholder="Review"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-sm-12">
+                            <a class="btn btn-lg btn-block btn-round btn-b" href="https://ghuntley.com">Submit Review</a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Better Alternatives®</h5>
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Instead of posting a photo of my face and a mockup, here&#39;s a real working app that:<br><br>- Logs into myGov<br>- Downloads vaccination data<br>- Prints official PDF with unforgeable QR code on it<br>- Is verified using one of the EU apps (!)<br>- Works nationally<br><br>Can we have something similar? <a href="https://t.co/HNknk9ezi7">https://t.co/HNknk9ezi7</a> <a href="https://t.co/JGh8HaY90t">pic.twitter.com/JGh8HaY90t</a></p>&mdash; Richard Nelson (@wabzqem) <a href="https://twitter.com/wabzqem/status/1440595249252823046?ref_src=twsrc%5Etfw">September 22, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Timeline</h5>
+                  <ul class="icon-list">
+                    <li>27th of Sept <a href="https://www.jabmaker.com">JabMaker 💉 launches to highlight failures to address security concerns.</a></li>
+                    <li>27th of Sept <a href="https://ghuntley.com/covidsafe/">COVIDSafe: Australia’s digital contact tracing failure.</a></li>
+                    <li>27th of Sept <a href="https://www.abc.net.au/news/science/2021-09-27/covid-19-vaccine-certificate-who-is-responsible-for-checking/100485844">NSW could reopen soon. Who will be responsible for checking COVID-19 vaccine certificates?</a></li>
+                    <li>25th of Sept <a href="https://www.theguardian.com/australia-news/2021/sep/25/vaccine-passports-in-australia-who-will-impose-them-and-how-will-they-work">Vaccine passports in Australia: who will impose them and how will they work?</a></li>
+                    <li>25th of Sept <a href="https://github.com/AusOpenTech/Vaccine-Certificates/blob/main/SurveillanceIsNotNecessary.md">Surveillance is not necessary for secure vaccine passports.</a></li>
+                    <li>24th of Sept <a href="https://amp.smh.com.au/technology/scams-forgeries-rise-as-vaccine-passport-mandates-loom-20210923-p58u4t.html">Scams, forgeries rise as vaccine passport mandates loom.</a></li>
+                    <li>23rd of Sept <a href="https://twitter.com/GavinCoote/status/1440594722309902338">NSW to begin vaccination passport trial.</a></li>
+                    <li>16th of Sept <a href="https://twitter.com/Jeremy_Kirk/status/1438300298154586113">In a couple of hours, Richard conjured a proof-of-concept showing how Australia can provide verifiable evidence of a person’s vaccinations status.</a></li>
+                    <li>10th of Sept <a href="https://twitter.com/wabzqem/status/1436261484401606658">Hacker Warn The Government Issues Vaccine Certificates Can And Will Be Faked.</a></li>
+                    <li>2nd of Sept <a href="https://twitter.com/wabzqem/status/1433262733428813833">Fake vaccination certificate generated for Craig Kelly in the medicare application.</a></li>
+                    <li>23rd of Aug<a href="https://www.abc.net.au/news/science/2021-08-23/covid-19-vaccine-certificates-forged-in-10-minutes/100390578">COVID vaccine certificates can be forged within 10 minutes due to 'obvious' security flaw.</a></li>
+                    <li>5th of Aug<a href="https://www.itnews.com.au/news/experts-call-for-rethink-of-covidsafe-app-568265">Experts call for rethink of COVIDSafe app.</a></li>
+                    <li>18th of Jun<a href="https://www.medrxiv.org/content/10.1101/2021.06.04.21257951v4">[preprint] Early Epidemiological Evidence of Public Health Value of WA Notify, a Smartphone-based Exposure Notification Tool: Modeling COVID-19 Cases Averted in Washington State.</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2021&nbsp;<a href="https://ghuntley.com/">Geoffrey Huntley</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="https://twitter.com/geoffreyhuntley"><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+    <!--  
+    JavaScripts
+    =============================================
+    -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="assets/lib/smoothscroll.js"></script>
+    <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
